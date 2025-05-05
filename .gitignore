@@ -1,0 +1,34 @@
+# === Build artifacts ===
+/bin/
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/Makefile
+/*.cmake
+/*.o
+/*.obj
+/*.so
+/*.dll
+/*.exe
+/*.out
+
+# === VS Code files ===
+.vscode/
+*.code-workspace
+
+# === CMake compile commands (symlink or real) ===
+/compile_commands.json
+
+# === Test output ===
+/Testing/
+CTestTestfile.cmake
+/DartConfiguration.tcl
+
+# === System/macOS cruft ===
+.DS_Store
+Thumbs.db
+
+# === Backup/editor detritus ===
+*~
+*.swp
+*.swo
