@@ -40,7 +40,6 @@ char tile_map[MAP_HEIGHT][MAP_WIDTH] =
 
 Map::Map()
 {
-    std::memset(&m_tiles, ' ', sizeof(char) * MAP_HEIGHT * MAP_WIDTH);
 }
 
 Map::~Map()
@@ -54,7 +53,7 @@ void Map::init()
     {
         for(int x = 0; x < MAP_WIDTH; ++x)
         {
-            m_tiles[y][x] = tile_map[y][x];
+            m_tiles[y][x] = new Tile(tile_map[y][x]);
         }
     }
 }
@@ -63,6 +62,11 @@ void Map::draw()
 {
     for(int y = 0; y < MAP_HEIGHT; ++y)
     {
-        printw("%s\n", m_tiles[y]);
+        for(int x = 0; x < MAP_WIDTH; ++x)
+        {
+            mvprintw(x, y, "%s", m_tiles[y][x]->getCharacter());
+            //printw("%s", m_tiles[y][x]->getCharacter());
+        }
+        printw("\n");
     }
 }

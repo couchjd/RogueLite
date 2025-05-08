@@ -8,14 +8,18 @@ Player::~Player()
 {
 }
 
-void Player::setPos(int x, int y)
+void Player::setPos(const Vec2DInt& pos)
 {
-    m_x = x;
-    m_y = y;
+    m_pos = pos;
 }
 
-void Player::getPos(int &x, int &y)
+void Player::setPos(int x, int y)
 {
-    x = m_x;
-    y = m_y;
+    m_pos.x = x;
+    m_pos.y = y;
+}
+
+Vec2DInt Player::getPos()
+{
+    return m_pos;
 }

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Util.h"
+
 class Player
 {
 public:
@@ -7,10 +9,11 @@ public:
 
     ~Player();
 
+    void setPos(const Vec2DInt& pos);
     void setPos(int x, int y);
-    void getPos(int& x, int& y);
     
+    Vec2DInt getPos();
+
 private:
-    int m_x;
-    int m_y;
+    Vec2DInt m_pos;
 };

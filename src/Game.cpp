@@ -39,11 +39,9 @@ void Game::run()
         refresh();
         m_map.draw();
 
-        int x = 0;
-        int y = 0;
-        m_player.getPos(x, y);
+        Vec2DInt player_pos = m_player.getPos();
 
-        move(x, y);
+        move(player_pos.x, player_pos.y);
         printw("%c", '@');
     }
 }
@@ -55,10 +53,9 @@ void Game::shutdown()
 
 void Game::handleInput(int input)
 {
-    int x = 0;
-    int y = 0;
-    
-    m_player.getPos(x, y);
+    Vec2DInt player_pos = m_player.getPos();
+    int x = player_pos.x;
+    int y = player_pos.y;
 
     switch(input)
     {
