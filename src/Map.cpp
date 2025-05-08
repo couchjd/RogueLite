@@ -64,9 +64,13 @@ void Map::draw()
     {
         for(int x = 0; x < MAP_WIDTH; ++x)
         {
-            mvprintw(x, y, "%s", m_tiles[y][x]->getCharacter());
-            //printw("%s", m_tiles[y][x]->getCharacter());
+            printw("%c", *m_tiles[y][x]->getCharacter());
         }
         printw("\n");
     }
+}
+
+Tile* Map::getTile(int y, int x)
+{
+    return m_tiles[y][x];
 }

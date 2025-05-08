@@ -23,7 +23,7 @@ void Game::init()
     echo();
     curs_set(0);
 
-    m_player.setPos(0, 0);
+    m_player.setPos(1, 1);
     m_map.init();
 }
 
@@ -61,22 +61,34 @@ void Game::handleInput(int input)
     {
         case KEY_UP:
         {
-            m_player.setPos(x-1, y);
+            if(m_map.getTile(x-1, y)->getIsPassable())
+            {            
+                m_player.setPos(x-1, y);
+            }
             break;
         }
         case KEY_DOWN:
         {
-            m_player.setPos(x+1, y);
+            if(m_map.getTile(x+1, y)->getIsPassable())
+            {
+                m_player.setPos(x+1, y);
+            }
             break;
         }
         case KEY_LEFT:
         {
-            m_player.setPos(x, y-1);
+            if(m_map.getTile(x, y-1)->getIsPassable())
+            {
+                m_player.setPos(x, y-1);
+            }
             break;
         }
         case KEY_RIGHT:
         {
-            m_player.setPos(x, y+1);
+            if(m_map.getTile(x, y+1)->getIsPassable())
+            {
+                m_player.setPos(x, y+1);
+            }
             break;
         }
         default:
