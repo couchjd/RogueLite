@@ -70,7 +70,7 @@ void Map::draw()
     }
 }
 
-Tile* Map::getTile(int y, int x)
+Tile* Map::getTile(int x, int y)
 {
     return m_tiles[y][x];
 }

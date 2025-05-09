@@ -13,7 +13,7 @@ public:
 
   void init();
   void draw();
-  Tile* getTile(int y, int x);
+  Tile* getTile(int x, int y);
 
 private:
     Tile* m_tiles[MAP_HEIGHT][MAP_WIDTH];

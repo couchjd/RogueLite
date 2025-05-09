@@ -41,7 +41,7 @@ void Game::run()
 
         Vec2DInt player_pos = m_player.getPos();
 
-        move(player_pos.x, player_pos.y);
+        move(player_pos.y, player_pos.x);
         printw("%c", '@');
     }
 }
@@ -61,33 +61,33 @@ void Game::handleInput(int input)
     {
         case KEY_UP:
         {
-            if(m_map.getTile(x-1, y)->getIsPassable())
+            if(m_map.getTile(x, y-1)->getIsPassable())
             {            
-                m_player.setPos(x-1, y);
+                m_player.setPos(x, y-1);
             }
             break;
         }
         case KEY_DOWN:
         {
-            if(m_map.getTile(x+1, y)->getIsPassable())
+            if(m_map.getTile(x, y+1)->getIsPassable())
             {
-                m_player.setPos(x+1, y);
+                m_player.setPos(x, y+1);
             }
             break;
         }
         case KEY_LEFT:
         {
-            if(m_map.getTile(x, y-1)->getIsPassable())
+            if(m_map.getTile(x-1, y)->getIsPassable())
             {
-                m_player.setPos(x, y-1);
+                m_player.setPos(x-1, y);
             }
             break;
         }
         case KEY_RIGHT:
         {
-            if(m_map.getTile(x, y+1)->getIsPassable())
+            if(m_map.getTile(x+1, y)->getIsPassable())
             {
-                m_player.setPos(x, y+1);
+                m_player.setPos(x+1, y);
             }
             break;
         }
