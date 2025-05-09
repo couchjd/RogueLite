@@ -23,7 +23,7 @@ void Game::init()
     echo();
     curs_set(0);
 
-    m_player.setPos(0, 0);
+    m_player.setPos(1, 1);
     m_map.init();
 }
 
@@ -39,11 +39,9 @@ void Game::run()
         refresh();
         m_map.draw();
 
-        int x = 0;
-        int y = 0;
-        m_player.getPos(x, y);
+        Vec2DInt player_pos = m_player.getPos();
 
-        move(x, y);
+        move(player_pos.y, player_pos.x);
         printw("%c", '@');
     }
 }
@@ -55,31 +53,42 @@ void Game::shutdown()
 
 void Game::handleInput(int input)
 {
-    int x = 0;
-    int y = 0;
-    
-    m_player.getPos(x, y);
+    Vec2DInt player_pos = m_player.getPos();
+    int x = player_pos.x;
+    int y = player_pos.y;
 
     switch(input)
     {
         case KEY_UP:
         {
-            m_player.setPos(x-1, y);
+            if(m_map.getTile(x, y-1)->getIsPassable())
+            {            
+                m_player.setPos(x, y-1);
+            }
             break;
         }
         case KEY_DOWN:
         {
-            m_player.setPos(x+1, y);
+            if(m_map.getTile(x, y+1)->getIsPassable())
+            {
+                m_player.setPos(x, y+1);
+            }
             break;
         }
         case KEY_LEFT:
         {
-            m_player.setPos(x, y-1);
+            if(m_map.getTile(x-1, y)->getIsPassable())
+            {
+                m_player.setPos(x-1, y);
+            }
             break;
         }
         case KEY_RIGHT:
         {
-            m_player.setPos(x, y+1);
+            if(m_map.getTile(x+1, y)->getIsPassable())
+            {
+                m_player.setPos(x+1, y);
+            }
             break;
         }
         default:
