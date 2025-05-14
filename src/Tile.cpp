@@ -33,3 +33,12 @@ void Tile::initPassability(const char &character)
         }
     }
 }
+
+std::map<tile_type, char> Tile::m_tile_map =
+{
+  {WALL, '#'},
+  {FLOOR, '.'},
+  {DOOR, '+'},
+  {STAIRS_UP, '<'},
+  {STAIRS_DN, '>'}
+};
