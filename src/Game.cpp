@@ -66,6 +66,7 @@ void Game::handleInput(int input)
         }
         case KEY_UP:
         {
+            if(m_map.getTile(x, y-1)->getIsPassable())
             {            
                 m_player.setPos(x, y-1);
             }
