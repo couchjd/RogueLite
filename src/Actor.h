@@ -16,6 +16,8 @@
 // "  Amulet
 // A-Z monsters
 
+#pragma once
+
 #include "Drawable.h"
 
 #include <map>

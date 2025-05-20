@@ -23,7 +23,7 @@ void Game::init()
     echo();
     curs_set(0);
 
-    m_player.setPos(1, 1);
+    m_player.setPosition(1, 1);
     m_map.init();
 }
 
@@ -39,10 +39,10 @@ void Game::run()
         refresh();
         m_map.draw();
 
-        Vec2DInt player_pos = m_player.getPos();
+        Vec2DInt player_pos = m_player.getPosition();
 
         move(player_pos.y, player_pos.x);
-        printw("%c", '@');
+        printw("%c", *m_player.getIcon());
     }
 }
 
@@ -53,7 +53,7 @@ void Game::shutdown()
 
 void Game::handleInput(int input)
 {
-    Vec2DInt player_pos = m_player.getPos();
+    Vec2DInt player_pos = m_player.getPosition();
     int x = player_pos.x;
     int y = player_pos.y;
 
@@ -68,7 +68,7 @@ void Game::handleInput(int input)
         {
             if(m_map.getTile(x, y-1)->getIsPassable())
             {            
-                m_player.setPos(x, y-1);
+                m_player.setPosition(x, y-1);
             }
             break;
         }
@@ -76,7 +76,7 @@ void Game::handleInput(int input)
         {
             if(m_map.getTile(x, y+1)->getIsPassable())
             {
-                m_player.setPos(x, y+1);
+                m_player.setPosition(x, y+1);
             }
             break;
         }
@@ -84,7 +84,7 @@ void Game::handleInput(int input)
         {
             if(m_map.getTile(x-1, y)->getIsPassable())
             {
-                m_player.setPos(x-1, y);
+                m_player.setPosition(x-1, y);
             }
             break;
         }
@@ -92,7 +92,7 @@ void Game::handleInput(int input)
         {
             if(m_map.getTile(x+1, y)->getIsPassable())
             {
-                m_player.setPos(x+1, y);
+                m_player.setPosition(x+1, y);
             }
             break;
         }

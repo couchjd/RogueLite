@@ -1,3 +1,4 @@
+#pragma once
 
 #include "Util.h"
 
@@ -33,7 +34,7 @@ public:
 
     void setIcon(char* icon) { m_icon = icon; }
     const char* getIcon() const { return m_icon; }
-    
+
     void draw();
 
 protected:
