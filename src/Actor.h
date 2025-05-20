@@ -16,26 +16,13 @@
 // "  Amulet
 // A-Z monsters
 
+#include "Drawable.h"
+
 #include <map>
 #include <string>
 
-typedef enum
-{
-    PLAYER,
-    POTION,
-    SCROLL,
-    WAND,
-    WEAPON,
-    ARMOR,
-    RING,
-    FOOD,
-    GOLD,
-    TRAP,
-    AMULET
-} actor_type;
-
-class Actor
+class Actor : public Drawable
 {
 public:
-    static std::map<actor_type, char> m_actor_map;
+    static std::map<icon_type, char> m_actor_map;
 };

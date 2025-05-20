@@ -17,14 +17,14 @@ const char* Tile::getCharacter()
     return &m_character;
 }
 
-const char* Tile::getCharacterByTileType(tile_type type)
+const char* Tile::getCharacterByTileType(icon_type type)
 {
     return &m_tile_map[type];
 }
 
-tile_type Tile::getTileTypeByCharacter(const char *character)
+icon_type Tile::getTileTypeByCharacter(const char *character)
 {
-    tile_type type = VOID;
+    icon_type type = VOID;
 
     for (const auto& [key, value] : m_tile_map)
     {
@@ -39,7 +39,7 @@ tile_type Tile::getTileTypeByCharacter(const char *character)
 
 void Tile::initPassability(const char &character)
 {
-    tile_type type = getTileTypeByCharacter(&character);
+    icon_type type = getTileTypeByCharacter(&character);
     
     switch(type)
     {
@@ -58,7 +58,7 @@ void Tile::initPassability(const char &character)
     }
 }
 
-std::map<tile_type, char> Tile::m_tile_map =
+std::map<icon_type, char> Tile::m_tile_map =
 {
     {VOID, ' '},
     {WALL, '#'},
