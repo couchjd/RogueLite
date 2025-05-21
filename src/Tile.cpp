@@ -1,20 +1,14 @@
 #include "Tile.h"
 
-Tile::Tile(const char character)
-:
-    m_character(character)
+Tile::Tile(char* character)
 {
-    initPassability(m_character);
+    setIcon(character);
+    initPassability(character);
 }
 
 bool Tile::getIsPassable()
 {
     return m_is_passable;
-}
-
-const char* Tile::getCharacter()
-{
-    return &m_character;
 }
 
 const char* Tile::getCharacterByTileType(icon_type type)
@@ -37,9 +31,9 @@ icon_type Tile::getTileTypeByCharacter(const char *character)
     return type;
 }
 
-void Tile::initPassability(const char &character)
+void Tile::initPassability(const char* character)
 {
-    icon_type type = getTileTypeByCharacter(&character);
+    icon_type type = getTileTypeByCharacter(character);
     
     switch(type)
     {

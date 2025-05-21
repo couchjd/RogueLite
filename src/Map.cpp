@@ -53,7 +53,7 @@ void Map::init()
     {
         for(int x = 0; x < MAP_WIDTH; ++x)
         {
-            m_tiles[y][x] = new Tile(tile_map[y][x]);
+            m_tiles[y][x] = new Tile(&tile_map[y][x]);
         }
     }
 }
@@ -64,7 +64,7 @@ void Map::draw()
     {
         for(int x = 0; x < MAP_WIDTH; ++x)
         {
-            printw("%c", *m_tiles[y][x]->getCharacter());
+            printw("%c", *m_tiles[y][x]->getIcon());
         }
         printw("\n");
     }

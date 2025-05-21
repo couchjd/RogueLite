@@ -38,7 +38,7 @@ public:
     void draw();
 
 protected:
-    char* m_icon;
+    char* m_icon = nullptr;
 
 private:
     Vec2DInt m_pos;
